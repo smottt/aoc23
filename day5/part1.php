@@ -2,11 +2,6 @@
 
 declare(strict_types = 1);
 
-$start = hrtime(true);
-
-error_reporting(-1);
-ini_set('display_errors', 'on');
-
 $fh = fopen(__DIR__ . '/input.txt', 'r');
 
 $seeds = array_filter(explode(' ', trim(fgets($fh))), fn ($in) => is_numeric($in));
@@ -42,4 +37,3 @@ while (($line = fgets($fh)) !== false) {
 
 // Expect: 227653707
 var_dump(min($seeds));
-var_dump(hrtime(true) - $start);
